@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Game
 {
@@ -11,40 +12,30 @@ namespace Game
 
         private static void Game()
         {
-            Console.WriteLine("The game will generate random number you should guess it");
-            Console.WriteLine("Two players requiered");
-            Console.WriteLine("Player one name: ");
-            var pl1 = Console.ReadLine();
-            Console.WriteLine("Player two name: ");
-            var pl2 = Console.ReadLine();
+            Console.WriteLine("The game will generate random number ([1 ; 100]) you should guess it");
+            Console.WriteLine("Enter number of Players: ");
+            var ppl = Convert.ToInt32(Console.ReadLine());
+
+            var arr = new List<string>();
+
+            for (int i = 0; i < ppl; i++)
+            {
+                Console.WriteLine($"Enter {i + 1} player name: ");
+
+                arr.Add(Console.ReadLine());
+            }
 
             Random rnd = new Random();
 
             var randomNum = rnd.Next() % 100 + 1;
-            Console.WriteLine(randomNum);
+            //Console.WriteLine($"Shhhhhhhhhhh your rnd num: {randomNum}");
 
-            bool won = false;
-            var pls = 0;
-            var count = 0;
-
-            if (rnd.Next() % 2 == 0)
+            var flag = false;
+            while (!flag)
             {
-                pls = 1;
-                Console.WriteLine("Player one is the first");
-            }
-            else
-            {
-                pls = 2;
-                Console.WriteLine("Player two in the first");
-            }
-
-
-
-            while (!won)
-            {
-                for (int i = pls; i <= 2; i++)
+                for (int i = 0; i < arr.Count; i++)
                 {
-                    Console.WriteLine($"Turn of player {i}, Enter your guess");
+                    Console.WriteLine($"Turn of player {arr[i]}, Enter your guess");
 
                     var g = Convert.ToInt32(Console.ReadLine());
 
@@ -52,7 +43,7 @@ namespace Game
 
                     if (g > 100 || g < 1)
                     {
-                        Console.WriteLine("Wrong input, try again");
+                        Console.WriteLine("Wrong input, you skip ^^");
                     }
                     else if (g < randomNum)
                     {
@@ -64,26 +55,13 @@ namespace Game
                     }
                     else if (g == randomNum)
                     {
-
-                        switch (pls)
-                        {
-                            case 1:
-                                Console.WriteLine($"{pl1} won!");
-                                break;
-                            case 2:
-                                Console.WriteLine($"{pl2} won!");
-                                break;
-                            default:
-                                break;
-                        }
-
-                        won = true;
+                        Console.WriteLine($"The player {arr[i]} won!");
+                        flag = true;
                         break;
                     }
 
 
                 }
-                pls = 1;
 
             }
 
