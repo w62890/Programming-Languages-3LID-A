@@ -4,8 +4,12 @@ using System.Text;
 
 namespace Operation_on_arrays_9_13
 {
+
+
+
     public static class ArrayUtils
     {
+        // Q2
         public enum TriaEnum
         {
             Above = 1,
@@ -44,18 +48,18 @@ namespace Operation_on_arrays_9_13
             {
                 for (int j = 0; j < inputArray.GetLength(1); j++)
                 {
-                    var cond = (j < i) ? result[i, j] = 0 : result[i, j] = inputArray[i, j];
+                    result [i, j] = (j < i) ?  0 : result[i, j] = inputArray[i, j];
 
-                    // result[i, j] = 0 ? (j < i) : result[i, j] = inputArray[i, j];
+                    //result[i, j] = 0 ? (j < i) : result[i, j] = inputArray[i, j];
 
-                    //if (j < i)
-                    //{
-                    //    result[i, j] = 0;
-                    //}
-                    //else
-                    //{
-                    //    result[i, j] = inputArray[i, j];
-                    //}
+                    ////if (j < i)
+                    ////{
+                    ////    result[i, j] = 0;
+                    ////}
+                    ////else
+                    ////{
+                    ////    result[i, j] = inputArray[i, j];
+                    ////}
                 }
             }
 
@@ -70,7 +74,8 @@ namespace Operation_on_arrays_9_13
             {
                 for (int j = 0; j < inputArray.GetLength(1); j++)
                 {
-                    var cond = (j < i) ? result[i, j] = 0 : result[i, j] = inputArray[i, j];
+                    // Q1
+                    // var cond = (j < i) ? result[i, j] = 0 : result[i, j] = inputArray[i, j];
 
                     // result[i, j] = 0 ? (j < i) : result[i, j] = inputArray[i, j];
 

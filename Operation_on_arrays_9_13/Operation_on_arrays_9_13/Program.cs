@@ -7,6 +7,7 @@ namespace Operation_on_arrays_9_13
         static void Main(string[] args)
         {
             // FluttenTest2();
+            Triangularize2();
         }
 
         public static void DiagonalTest()
@@ -50,7 +51,7 @@ namespace Operation_on_arrays_9_13
             }
             Console.WriteLine();
             result = ArrayUtils.Triangularize(array, ArrayUtils.TriaEnum.Under);
-            //result = ArrayUtils.Triangularize(array, 1);
+            // result = ArrayUtils.Triangularize(array, 1);
 
 
             for (int i = 0; i < result.GetLength(0); i++)
