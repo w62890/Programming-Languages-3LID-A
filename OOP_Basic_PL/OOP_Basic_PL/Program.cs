@@ -7,7 +7,8 @@ namespace OOP_Basic_PL
         
         static void Main(string[] args)
         {
-            PointTest();
+            //PointTest();
+            CarTest();
         }
 
         private static void PointTest()
@@ -32,10 +33,10 @@ namespace OOP_Basic_PL
             car1.Status();
             car1.ResetDailyKilometers();
             car1.Status();
-            car1.Drive(9000);
+            car1.Drive(10);
             car1.Status();
             car1.Tank(60);
-            car1.Drive(9000);
+            car1.Drive(25);
             car1.Status();
 
 

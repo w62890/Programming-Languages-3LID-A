@@ -15,34 +15,6 @@ namespace OOP_Basic_PL
         private double _petrolLevel;
 
         //public int DailyKilometerCounter => Convert.ToInt32(_dailyKilometerCounter);
-
-        public int DailyKilometerCounter
-        {
-            set
-            {
-                if(value > 999)
-                    throw new ArgumentOutOfRangeException("Dkmc cannot be greater than 999");
-            }
-
-            get
-            {
-                return Convert.ToInt32(_dailyKilometerCounter);
-            }
-        }
-
-        public int KilometerCounter
-        {
-            set
-            {
-                if (value > 999999)
-                    throw new ArgumentOutOfRangeException("Kmc cannot be greater than 999999");
-            }
-
-            get
-            {
-                return Convert.ToInt32(_kilometerCounter);
-            }
-        }
         public string Make => _make;
         public int YearOfProduction => _yearOfProduction;
         public string Color => _color;
@@ -91,6 +63,12 @@ namespace OOP_Basic_PL
         {
             if (kilometers < 0.0)
                 throw new ArgumentException("Kilometers cannot be negative");
+            
+            if (kilometers + _dailyKilometerCounter > 999)
+                throw new ArgumentOutOfRangeException("Dkmc cannot be greater than 999");
+
+            if (kilometers + _kilometerCounter > 999999)
+                throw new ArgumentOutOfRangeException("Kmc cannot be greater than 999999");
 
             var range = _petrolLevel * 100.0 / _petrolUsagePer100Km;
             if (kilometers > range)
@@ -109,7 +87,7 @@ namespace OOP_Basic_PL
 
         public void Status()
         {
-            Console.WriteLine($"Your {_make} Color {_color} has {_petrolLevel} liters, kmC is {KilometerCounter}, dkmC is {DailyKilometerCounter}");
+            Console.WriteLine($"Your {_make} Color {_color} has {_petrolLevel} liters, kmC is {_kilometerCounter}, dkmC is {_dailyKilometerCounter}");
         }
 
         public void ResetDailyKilometers()
