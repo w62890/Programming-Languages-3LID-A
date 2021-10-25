@@ -4,11 +4,10 @@ using System.Text;
 
 namespace Operation_on_arrays_9_13
 {
-
-
-
     public static class ArrayUtils
     {
+        // Comments required!
+        
         // Q2
         public enum TriaEnum
         {
@@ -19,7 +18,7 @@ namespace Operation_on_arrays_9_13
         public enum FlutEnum
         {
             Row = 1,
-            Column
+            Column = 2
         }
         public static int[] Diagonal2(int[,] inputArray)
         {
@@ -31,9 +30,7 @@ namespace Operation_on_arrays_9_13
                 {
                     // result.Add(inputArray[i, j]) ? i == j : continue;
                     if (i == j)
-                    {
                         result.Add(inputArray[i, j]);
-                    }
                 }
             }
 
@@ -49,17 +46,6 @@ namespace Operation_on_arrays_9_13
                 for (int j = 0; j < inputArray.GetLength(1); j++)
                 {
                     result [i, j] = (j < i) ?  0 : result[i, j] = inputArray[i, j];
-
-                    //result[i, j] = 0 ? (j < i) : result[i, j] = inputArray[i, j];
-
-                    ////if (j < i)
-                    ////{
-                    ////    result[i, j] = 0;
-                    ////}
-                    ////else
-                    ////{
-                    ////    result[i, j] = inputArray[i, j];
-                    ////}
                 }
             }
 
